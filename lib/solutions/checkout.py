@@ -7,7 +7,8 @@ PRICES = {
     'B': 30,
     'C': 20,
     'D': 15,
-    'E': 40
+    'E': 40,
+    'F': 10
 }
 
 MULTI_BUYS = {
@@ -29,7 +30,7 @@ GIFTS = {
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    invalid_skus = [s for s in skus if s not in 'ABCDE']
+    invalid_skus = [s for s in skus if s not in PRICES.keys()]
     if invalid_skus:
         return -1
 
