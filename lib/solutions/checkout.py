@@ -25,8 +25,8 @@ GIFTS = {
     'E': {'sku': 'B', 'count': 2},
 }
 
-BOGOF = {
-    'F': {'free': 1, 'count': 2}
+BOGOFS = {
+    'F': {'free': 1, 'count': 3}
 }
 
 
@@ -44,6 +44,10 @@ def checkout(skus):
     for sku, count in c.items():
         if sku in GIFTS and count >= GIFTS[sku]['count']:
             gifts[GIFTS[sku]['sku']] += math.floor(count / GIFTS[sku]['count'])
+        if sku in BOGOFS and count >= BOGOFS[sku]['count']:
+            free = math.floor(count / BOGOFS[sku]['count']) * BOGOFS[sku]['free']
+            c[sku] -= free
+
     for sku, count in c.items():
         if sku in gifts:
             count = max(0, count - gifts[sku])
