@@ -1,5 +1,4 @@
 import math
-import string
 from collections import Counter, defaultdict
 
 PRICES = {
@@ -40,8 +39,8 @@ MULTI_BUYS = {
         {'count': 2, 'price': 45}
     ],
     'H': [
+        {'count': 10, 'price': 80},
         {'count': 5, 'price': 45},
-        {'count': 10, 'price': 80}
     ],
     'K': [
         {'count': 2, 'price': 150}
@@ -53,8 +52,8 @@ MULTI_BUYS = {
         {'count': 3, 'price': 80}
     ],
     'V': [
+        {'count': 3, 'price': 130},
         {'count': 2, 'price': 90},
-        {'count': 3, 'price': 130}
     ]
 }
 
