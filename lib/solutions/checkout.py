@@ -44,7 +44,7 @@ MULTI_BUYS = {
         {'count': 5, 'price': 45},
     ],
     'K': [
-        {'count': 2, 'price': 150}
+        {'count': 2, 'price': 120}
     ],
     'P': [
         {'count': 5, 'price': 200}
