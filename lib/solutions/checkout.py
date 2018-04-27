@@ -13,10 +13,10 @@ PRICES = {
 # skus = unicode string
 def checkout(skus):
     total = 0
-    c = Counter(skus.upper())
+    c = Counter(skus)
     for sku, count in c.items():
         if sku not in 'ABCD':
-            continue
+            return -1
         prices = PRICES[sku]
         if count <= len(prices):
             sum_ = prices[count - 1]
