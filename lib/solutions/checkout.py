@@ -84,9 +84,12 @@ def checkout(skus):
     total = 0
     c = Counter(skus)
 
+    print(c)
+
     for skus, discount in GROUP_DISCOUNTS.items():
         prices = [(s, p) for s, p in PRICES.items() if s in skus and s in c]
         prices = sorted(prices, key=itemgetter(1), reverse=True)
+        print(prices)
         item_count = sum(c.get(sku, 0) for sku in skus)
         item_groups = math.floor(item_count / discount['count'])
         total += item_groups * discount['price']
@@ -99,6 +102,7 @@ def checkout(skus):
             else:
                 c[sku] = c[sku] - (discounted_items - item_counter)
 
+    print(c)
     gifts = defaultdict(int)
     for sku, count in c.items():
         if sku in GIFTS and count >= GIFTS[sku]['count']:
