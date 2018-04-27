@@ -1,11 +1,17 @@
+import math
 import string
 from collections import Counter
 
 PRICES = {
-    'A': [50, 100, 130],
-    'B': [30, 45],
-    'C': [20],
-    'D': [15],
+    'A': 50,
+    'B': 30,
+    'C': 20,
+    'D': 15
+}
+
+MULTI_BUYS = {
+    'A': {'count': 3, 'price': 130},
+    'B': {'count': 2, 'price': 45}
 }
 
 
@@ -18,10 +24,11 @@ def checkout(skus):
         if sku not in 'ABCD':
             return -1
         prices = PRICES[sku]
-        if count <= len(prices):
-            sum_ = prices[count - 1]
-        else:
-            sum_ = prices[-1] / len(prices) * count
-        total += sum_
+        multi_buy = MULTI_BUYS[sku]
+        if multi_buy and count >= multi_buy['count']:
+            groups = math.floor(count / multi_buy['count'])
+            remainder = count % multi_buy['count']
+
+
     return total
 
