@@ -1,5 +1,6 @@
 import math
 from collections import Counter, defaultdict
+from operator import itemgetter
 
 PRICES = {
     'A': 50,
@@ -82,6 +83,11 @@ def checkout(skus):
 
     total = 0
     c = Counter(skus)
+
+    for skus, discount in GROUP_DISCOUNTS.items():
+        prices = [(s, p) for s, p in PRICES.items() if s in skus]
+        prices = sorted(prices, key=itemgetter(0))
+        print(prices)
 
     gifts = defaultdict(int)
     for sku, count in c.items():
