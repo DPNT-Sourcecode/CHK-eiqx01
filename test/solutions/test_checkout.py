@@ -16,6 +16,7 @@ class TestCheckout(unittest.TestCase):
         self.assertEqual(checkout('HHHHHHHHHH'), 80)
         self.assertEqual(checkout('HHHHHHHHHHH'), 90)
         self.assertEqual(checkout('HHHHHHHHHHHH'), 100)
+        self.assertEqual(checkout('ZZZXXXX'), 107)
 
 
 if __name__ == '__main__':
