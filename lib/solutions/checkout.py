@@ -12,7 +12,7 @@ PRICES = {
     'H': 10,
     'I': 35,
     'J': 60,
-    'K': 80,
+    'K': 70,
     'L': 90,
     'M': 15,
     'N': 40,
@@ -20,7 +20,7 @@ PRICES = {
     'P': 50,
     'Q': 30,
     'R': 50,
-    'S': 30,
+    'S': 20,
     'T': 20,
     'U': 40,
     'V': 50,
@@ -66,6 +66,10 @@ GIFTS = {
 BOGOFS = {
     'F': {'free': 1, 'count': 3},
     'U': {'free': 1, 'count': 4}
+}
+
+GROUP_DISCOUNTS = {
+    'STXYZ': {'price': 45, 'count': 3}
 }
 
 
