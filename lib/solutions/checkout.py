@@ -13,7 +13,7 @@ PRICES = {
 def checkout(skus):
     total = 0
     c = Counter(skus)
-    for sku, count in c:
+    for sku, count in c.items():
         prices = PRICES[sku]
         if count <= len(prices):
             sum_ = prices[count - 1]
