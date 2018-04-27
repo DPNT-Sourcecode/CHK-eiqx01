@@ -39,6 +39,7 @@ def checkout(skus):
     for sku, count in c.items():
         if sku in GIFTS and count >= GIFTS[sku]['count']:
             gifts[GIFTS[sku]['sku']] += math.floor(count / GIFTS[sku]['count'])
+            
     for sku, count in c.items():
         if sku in gifts:
             count = max(0, count - gifts[sku])
