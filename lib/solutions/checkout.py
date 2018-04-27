@@ -15,7 +15,7 @@ def checkout(skus):
     total = 0
     c = Counter(skus.upper())
     for sku, count in c.items():
-        if sku not in string.ascii_uppercase:
+        if sku not in 'ABCD':
             continue
         prices = PRICES[sku]
         if count <= len(prices):
