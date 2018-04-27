@@ -1,3 +1,4 @@
+import string
 from collections import Counter
 
 PRICES = {
@@ -14,6 +15,8 @@ def checkout(skus):
     total = 0
     c = Counter(skus.upper())
     for sku, count in c.items():
+        if sku not in string.ascii_uppercase:
+            continue
         prices = PRICES[sku]
         if count <= len(prices):
             sum_ = prices[count - 1]
