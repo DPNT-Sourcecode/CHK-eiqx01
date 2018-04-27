@@ -24,7 +24,7 @@ def checkout(skus):
         if sku not in 'ABCD':
             return -1
         price = PRICES[sku]
-        multi_buy = MULTI_BUYS[sku]
+        multi_buy = MULTI_BUYS.get(sku)
         if multi_buy and count >= multi_buy['count']:
             groups = math.floor(count / multi_buy['count'])
             remainder = count % multi_buy['count']
