@@ -86,7 +86,7 @@ def checkout(skus):
 
     for skus, discount in GROUP_DISCOUNTS.items():
         prices = [(s, p) for s, p in PRICES.items() if s in skus]
-        prices = sorted(prices, key=itemgetter(0))
+        prices = sorted(prices, key=itemgetter(1), reverse=True)
         print(prices)
 
     gifts = defaultdict(int)
