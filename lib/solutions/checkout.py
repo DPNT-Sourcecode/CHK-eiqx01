@@ -28,17 +28,18 @@ GIFTS = {
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    
+    invalid_skus = [s for s in skus if s not in 'ABCDE']
+    if invalid_skus:
+        return -1
     total = 0
     c = Counter(skus)
     gifts = defaultdict(int)
     for sku, count in c.items():
-        g = GIFTS.get(sku)
-        if g and count >= g.count:
-            gifts[g.sku] = math.floor(count / g.count)
+        if sku in GIFTS and count >= GIFTS[sku]['count']:
+            gifts[GIFTS[sku]['sku']] = math.floor(count / GIFTS[sku]['count'])
     for sku, count in c.items():
-        if sku not in 'ABCD':
-            return -1
+        if sku in gifts:
+            count = max(0, count - gifts[sku])
         price = PRICES[sku]
         multi_buy = MULTI_BUYS.get(sku)
         if multi_buy and count >= multi_buy['count']:
