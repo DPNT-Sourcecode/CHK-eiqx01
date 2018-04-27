@@ -12,7 +12,7 @@ class TestCheckout(unittest.TestCase):
         self.assertEqual(checkout('FFFF'), 30)
         self.assertEqual(checkout('FFFFF'), 40)
         self.assertEqual(checkout('FFFFFF'), 40)
-        self.assertEqual(checkout('ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 40)
+        self.assertEqual(checkout('ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 965)
 
 
 if __name__ == '__main__':
