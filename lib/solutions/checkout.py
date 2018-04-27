@@ -12,7 +12,7 @@ PRICES = {
 # skus = unicode string
 def checkout(skus):
     total = 0
-    c = Counter(skus)
+    c = Counter(skus.upper())
     for sku, count in c.items():
         prices = PRICES[sku]
         if count <= len(prices):
