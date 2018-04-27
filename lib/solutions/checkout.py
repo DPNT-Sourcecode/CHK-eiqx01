@@ -15,6 +15,10 @@ MULTI_BUYS = {
     'B': {'count': 2, 'price': 45}
 }
 
+GIFTS = {
+    'E': {'sku': 'B', 'count': 2}
+}
+
 
 # noinspection PyUnusedLocal
 # skus = unicode string
