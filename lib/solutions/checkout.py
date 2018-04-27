@@ -23,7 +23,10 @@ MULTI_BUYS = {
 
 GIFTS = {
     'E': {'sku': 'B', 'count': 2},
-    'F': {'sku': 'F', 'count': 2}
+}
+
+BOGOF = {
+    'F': {'free': 1, 'count': 2}
 }
 
 
