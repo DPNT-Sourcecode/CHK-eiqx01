@@ -44,11 +44,14 @@ def checkout(skus):
         if sku in gifts:
             count = max(0, count - gifts[sku])
         price = PRICES[sku]
-        multi_buy = MULTI_BUYS.get(sku)
-        if multi_buy and count >= multi_buy['count']:
-            groups = math.floor(count / multi_buy['count'])
-            remainder = count % multi_buy['count']
-            sum_ = groups * multi_buy['price'] + remainder * price
+        if sku in MULTI_BUYS:
+            remainder = count
+            sum_ = 0
+            for multi_buy in MULTI_BUYS[sku]:
+                if multi_buy['count'] >= remainder:
+                    sum_ += multi_buy['price'] * math.floor(remainder / multi_buy['count'])
+                    remainder = remainder % multi_buy['count']
+            sum_ += remainder * price
         else:
             sum_ = count * price
         total += sum_
