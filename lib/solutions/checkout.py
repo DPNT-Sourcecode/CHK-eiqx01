@@ -23,12 +23,15 @@ def checkout(skus):
     for sku, count in c.items():
         if sku not in 'ABCD':
             return -1
-        prices = PRICES[sku]
+        price = PRICES[sku]
         multi_buy = MULTI_BUYS[sku]
         if multi_buy and count >= multi_buy['count']:
             groups = math.floor(count / multi_buy['count'])
             remainder = count % multi_buy['count']
-
+            sum_ = groups * multi_buy['price'] + remainder * price
+        else:
+            sum_ = count * price
+        total += sum_
 
     return total
 
